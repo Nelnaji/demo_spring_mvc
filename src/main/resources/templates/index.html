@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" th:href="@{styles/global.css}" />
-  <link rel="stylesheet" th:href="@{styles/media.css}" />
+    <link rel="stylesheet" th:href="@{/styles/global.css}" />
+    <link rel="stylesheet" th:href="@{/styles/media.css}" />
 
-    <title>Chadopte -- Error 404</title>
+    <title>Chadopte</title>
 </head>
 <body>
 <header>
@@ -18,7 +18,7 @@
         </div>
         <div class="menu__box">
             <a th:href="@{/}" class="menu__link">Accueil</a>
-            <a th:href="@{/contact}" class="menu__link">Contact</a>
+            <a th:href="@{contact}" class="menu__link">Contact</a>
             <button href="" class="menu__btn">
                 <img
                         class="menu__light-btn"
@@ -37,10 +37,30 @@
                 th:src="@{imgs/hero__banner.webp}"
                 alt="groupes de chat allongés"
         />
-        <span class="hero__text">Error 404 Cette page n'existe pas</span>
+        <span class="hero__text">Chadoptez nos super chats</span>
     </section>
 
+    <section class="content">
 
+
+
+        <div th:each="cat : ${cats}" th:object="${cat}" class="card">
+            <div class="card__head">
+                <div class="picture__box">
+                    <img th:src="@{imgs/our_cats/cat-1.jpg}" alt="image chaton" />
+                </div>
+
+                <div class="card__head-text">
+                    <p class="card__name" th:text="${cat.catName()}"></p>
+                    <p class="card__age" th:text="${cat.birthDate()}">5 ans</p>
+                </div>
+            </div>
+
+            <a class="card__details" th:href="@{/detail/{id} (id=${cat.id()})}">Details</a>
+        </div>
+
+
+    </section>
 </main>
 <footer></footer>
 </body>

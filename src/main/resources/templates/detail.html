@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Detail de ...</title>
+</head>
+<body>
+
+<h1 th:text="${cat.catName()}"></h1>
+
+
+<h2>Description</h2>
+<p th:text="${cat.description()}"></p>
+
+<h2>Race</h2>
+<p th:text="${cat.breed()}"></p>
+
+<h2>Age</h2>
+<p th:text="${cat.birthDate() }"></p>
+
+
+
+
+</body>
+</html>

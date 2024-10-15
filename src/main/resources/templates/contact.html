@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--    <link rel="stylesheet" href="./css/global.css" />-->
+    <!--    <link rel="stylesheet" href="./css/media.css" />-->
+
+    <title>Chadopte -- Formulaire de contact</title>
+</head>
+<body>
+<header>
+    <nav>
+        <div class="logo__box">
+            <a th:href="@{contact.html}" class="logo__link"
+            ><span class="logo__typo">C</span>hadopte</a
+            >
+        </div>
+        <div class="menu__box">
+            <a th:href="@{}" class="menu__link">Accueil</a>
+            <a th:href="@{contact}" class="menu__link">Contact</a>
+            <button href="" class="menu__btn">
+                <img
+                        class="menu__light-btn"
+                        th:src="@{imgs/moon-btn.svg}"
+                        alt=""
+                />
+            </button>
+        </div>
+    </nav>
+</header>
+
+<main>
+    <h1>Utilisez ce formulaire pour toute question ou demande</h1>
+
+    <form method="post" th:action="@{/envoyer}" th:object="${message}">
+        <div>
+            <label for="userName">Nom : </label>
+            <input id="userName" type="text" th:field="*{userName}">
+        </div>
+        <div>
+            <label for="userEmail">Email : </label>
+            <input id="userEmail" type="email" th:field="*{userEmail}">
+        </div>
+
+        <div>
+            <label for="userMessage">Email : </label>
+            <input id="userMessage" type="text" th:field="*{userMessage}">
+        </div>
+
+        <button type="submit">Envoyer</button>
+
+    </form>
+
+
+
+</main>
+</body>
+</html>
